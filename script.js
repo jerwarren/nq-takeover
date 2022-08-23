@@ -9,9 +9,8 @@ function domReady(){
 }
 
 function oneSecond(){
-    meter.style="width:"+count*seconds+"%";
-    
-    if (count < seconds){
+    if (count <= seconds){
+        meter.style="width:"+count*seconds+"%";
         count++;
         setTimeout(oneSecond, 1000);
     } else {
