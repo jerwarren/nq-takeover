@@ -10,9 +10,168 @@
         <title>Highball is Coming</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://jerwarren.github.io/nq-takeover/style.css?2022-08-04-02">
     </head>
     <body>
+        <style>
+            body, html {
+                background-color: #0b0c10;
+                padding: 0 0 0 0;
+                margin: 0 0 0 0;
+                overflow: hidden;
+                height: 100vh;
+                width: 100vw;
+                text-align: center;
+
+            }
+
+            .background-desktop {
+            width: 100vw;
+            height: 100vh;
+            margin: auto;
+            text-align: center;
+            position: absolute;
+            }
+
+            .background-desktop video {
+            width: 100%;
+            max-width: 1600px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            }
+
+            .background-mobile {
+            width: 100vw;
+            height: 100vh;
+            margin: auto;
+            text-align: center;
+            position: absolute;
+            }
+
+            .background-mobile video {
+            width: 100%;
+            max-width: 400px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            }
+
+            @media only screen and (max-width: 599px) {
+                .background-desktop {
+                    display: none;
+                }
+
+                .background-mobile {
+                    display: block;
+                }
+            }
+
+            @media only screen and (min-width: 600px) {
+                .background-desktop {
+                    display: block;
+                }
+
+                .background-mobile {
+                    display: none;
+                }
+            }
+
+            .logo {
+                position: fixed;
+                top: 30vh;
+                left: 1vw;
+                right: 1vw;
+                width: auto;
+                height: 30vh;
+            }
+            .logo img {
+                max-width: 100vw;
+            }
+
+            /* progress bar stuff */
+
+            .meter {
+                position: fixed!important ;
+                bottom: 30vh;
+                left: 10vw;
+                right: 10vw;
+                box-sizing: content-box;
+                height: 20px; /* Can be anything */
+                position: relative;
+                margin: 60px 0 20px 0; /* Just for demo spacing */
+                background: #555;
+                border-radius: 25px;
+                padding: 10px;
+                box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+            }
+            .meter > span {
+                display: block;
+                height: 100%;
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+                background-color: rgb(178 135 99);
+                box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
+                inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+                position: relative;
+                overflow: hidden;
+                transition: all 1s linear;
+            }
+            .meter > span:after,
+            .animate > span > span {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background-image: linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                transparent 75%,
+                transparent
+                );
+                z-index: 1;
+                background-size: 50px 50px;
+                animation: move 2s linear infinite;
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+                overflow: hidden;
+            }
+            
+            .animate > span:after {
+                display: none;
+            }
+            
+            @keyframes move {
+                0% {
+                background-position: 0 0;
+                }
+                100% {
+                background-position: 50px 50px;
+                }
+            }
+            
+            .nostripes > span > span,
+            .nostripes > span::after {
+                background-image: none;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+        </style>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -22,6 +181,37 @@
         <div class="background-desktop">
             <video poster="https://res.cloudinary.com/kalispel/video/upload/v1661362486/video/Website_Teaser_idwsih.jpg" src="https://res.cloudinary.com/kalispel/video/upload/v1661362486/video/Website_Teaser_idwsih.mp4" autoplay muted plays-inline></video>
         </div>
-        <script src="https://jerwarren.github.io/nq-takeover/script.js?2022-08-04-02"></script>
+
+        <script>
+            const seconds = 5;
+
+            document.querySelector('.background-mobile video').addEventListener('ended',redirect,false);
+            document.querySelector('.background-desktop video').addEventListener('ended',redirect,false);
+
+            var count = 1;
+            /*
+            function domReady(){
+                console.log("dom ready")
+                setTimeout(oneSecond, 1000);
+            }
+
+            function oneSecond(){
+                if (count <= seconds){
+                    //meter.style="width:"+count*seconds+"%";
+                    count++;
+                    setTimeout(oneSecond, 1000);
+                } else {
+                    redirect();
+                }
+            }
+            */
+
+            function redirect(){
+                //console.log("redirecting");
+                //window.location.href="https://www.northernquest.com?HB";
+                window.close();
+                frameElement.remove();
+            }
+        </script>
     </body>
 </html>
