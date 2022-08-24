@@ -1,6 +1,10 @@
-document.addEventListener('DOMContentLoaded', domReady);
+//document.addEventListener('DOMContentLoaded', domReady);
 //const meter = document.querySelector(".meter span");
 const seconds = 5;
+
+document.querySelector('.background-mobile video').addEventListener('ended',redirect,false);
+document.querySelector('.background-desktop video').addEventListener('ended',redirect,false);
+
 
 var count = 1;
 function domReady(){
@@ -18,7 +22,11 @@ function oneSecond(){
     }
 }
 
+function myHandler(e) {
+    // What you want to do after the event
+}
+
 function redirect(){
     console.log("redirecting");
-    window.location.href="https://www.northernquest.com";
+    window.location.href="https://www.northernquest.com?HB";
 }
