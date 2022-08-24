@@ -27,6 +27,7 @@ function myHandler(e) {
 }
 
 function redirect(){
-    console.log("redirecting");
-    window.location.href="https://www.northernquest.com?HB";
+    //console.log("redirecting");
+    //window.location.href="https://www.northernquest.com?HB";
+    window.close();
 }
