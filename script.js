@@ -30,4 +30,5 @@ function redirect(){
     //console.log("redirecting");
     //window.location.href="https://www.northernquest.com?HB";
     window.close();
+    frameElement.remove();
 }
