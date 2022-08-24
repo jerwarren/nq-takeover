@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', domReady);
-const meter = document.querySelector(".meter span");
-const seconds = 11;
+//const meter = document.querySelector(".meter span");
+const seconds = 5;
 
 var count = 1;
 function domReady(){
@@ -10,7 +10,7 @@ function domReady(){
 
 function oneSecond(){
     if (count <= seconds){
-        meter.style="width:"+count*seconds+"%";
+        //meter.style="width:"+count*seconds+"%";
         count++;
         setTimeout(oneSecond, 1000);
     } else {
