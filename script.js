@@ -5,8 +5,8 @@ const seconds = 5;
 document.querySelector('.background-mobile video').addEventListener('ended',redirect,false);
 document.querySelector('.background-desktop video').addEventListener('ended',redirect,false);
 
-
 var count = 1;
+/*
 function domReady(){
     console.log("dom ready")
     setTimeout(oneSecond, 1000);
@@ -21,6 +21,7 @@ function oneSecond(){
         redirect();
     }
 }
+*/
 
 function myHandler(e) {
     // What you want to do after the event
